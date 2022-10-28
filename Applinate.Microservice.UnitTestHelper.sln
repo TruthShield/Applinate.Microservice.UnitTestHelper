@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{709975EA-7567-47F9-AB94-9B3B5BC67566}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		build.cmd = build.cmd
+		build.ps1 = build.ps1
+		build.sh = build.sh
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+		License.md = License.md
+		make-cert.ps1 = make-cert.ps1
+		master-config.json = master-config.json
+		power-clean.bat = power-clean.bat
+		power-clean.ps1 = power-clean.ps1
+		README.md = README.md
+		secrets.json = secrets.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{07680DA4-0D20-429D-97C5-CE782B7A910B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", ".build\_build.csproj", "{A455DC77-B078-4033-BBCD-5BACFD436F04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Applinate.Microservice.UnitTestHelper", "src\Applinate.Microservice.UnitTestHelper.csproj", "{27AD5D94-EA3B-43CB-AB2E-D1E245A4F98E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A455DC77-B078-4033-BBCD-5BACFD436F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A455DC77-B078-4033-BBCD-5BACFD436F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27AD5D94-EA3B-43CB-AB2E-D1E245A4F98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27AD5D94-EA3B-43CB-AB2E-D1E245A4F98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27AD5D94-EA3B-43CB-AB2E-D1E245A4F98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27AD5D94-EA3B-43CB-AB2E-D1E245A4F98E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{27AD5D94-EA3B-43CB-AB2E-D1E245A4F98E} = {07680DA4-0D20-429D-97C5-CE782B7A910B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74E8EC11-F06C-4224-92D8-A41B16D3853A}
+	EndGlobalSection
+EndGlobal

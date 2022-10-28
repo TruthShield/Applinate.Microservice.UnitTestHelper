@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <TargetFramework>net6.0</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <Version>0.0.1</Version>
+	  <Authors>Truth Shield, Matt Cochran</Authors>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>Applinate unit test helper by TruthShield</Title>
+	  <Copyright>2022 Truthshield</Copyright>
+	  <PackageProjectUrl>https://applinate.com/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/TruthShield/Applinate.Microservice.UnitTestHelper</RepositoryUrl>
+	  <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+	  <PlatformTarget>AnyCPU</PlatformTarget>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseFile>License.md</PackageLicenseFile>
+	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	  <PackageIcon>applinate-icon-128x128.png</PackageIcon>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <SignAssembly>False</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\docs\images\applinate-icon-128x128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\License.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Applinate.Microservice.Foundation" Version="0.1.1" />
+    <PackageReference Include="AsyncFixer" Version="1.6.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="dotnet-framework-sonarscanner" Version="5.8.0" />
+    <PackageReference Include="Meziantou.Analyzer" Version="1.0.743">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
