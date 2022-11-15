@@ -13,9 +13,9 @@
     /// <typeparam name="TResult">The type of the t result.</typeparam>
     /// <seealso cref="Applinate.IHandleRequest{TArg, TResult}" />
     [BypassSafetyChecks]
-    internal sealed class MockCommandExecutor<TArg, TResult> : IHandleRequest<TArg, TResult>
+    internal sealed class MockCommandExecutor<TArg, TResult> : IRequestHandler<TArg, TResult>
         where TArg : class, IReturn<TResult>
-        where TResult : class, IHaveRequestStatus
+        where TResult : class, IHaveResponseStatus
     {
         public Func<TArg, CancellationToken, Task<TResult>>? Behavior;
 

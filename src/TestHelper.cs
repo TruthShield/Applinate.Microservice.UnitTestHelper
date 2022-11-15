@@ -77,7 +77,7 @@ namespace Applinate.Test
         /// <param name="f"></param>
         public static void MockRequestForTestDuration<TRequest, TResponse>(Func<TRequest, TResponse> f)
         where TRequest : class, IReturn<TResponse>
-        where TResponse : class, IHaveRequestStatus =>
+        where TResponse : class, IHaveResponseStatus =>
             MockRequest<TRequest, TResponse>.SetForTestScope(f);
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Applinate.Test
         /// <param name="f">The f.</param>
         public static void MockRequestGlobally<TRequest, TResponse>(Func<TRequest, TResponse> f)
         where TRequest : class, IReturn<TResponse>
-        where TResponse : class, IHaveRequestStatus =>
+        where TResponse : class, IHaveResponseStatus =>
             MockRequest<TRequest, TResponse>.SetGlobally(f);
 
         public static void OnlyLoadReferencedAssemblies(bool value = true) =>

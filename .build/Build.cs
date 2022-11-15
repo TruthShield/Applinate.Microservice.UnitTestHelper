@@ -58,6 +58,8 @@ class Build : NukeBuild
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
+    static string Version = new Version(0, 1, 1).ToString();
+    GitVersion GitVersion => From<IWithGitVersion>().Versioning;
     public static int Main () => Execute<Build>(x => x.Test);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
@@ -94,7 +96,6 @@ class Build : NukeBuild
         where T : INukeBuild
         => (T)(object)this;
 
-    GitVersion GitVersion => From<IWithGitVersion>().Versioning;
 
     //Target ConfigureCert => _ => _
     //.Before(Compile)
@@ -221,7 +222,6 @@ class Build : NukeBuild
             );
         });
 
-    static string Version = new Version(0, 1, 0).ToString();
 
     Target Pack => _ => _
       .DependsOn(Test)

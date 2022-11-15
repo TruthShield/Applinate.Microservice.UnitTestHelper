@@ -21,7 +21,7 @@ namespace Applinate.Test
 
             TestHelper.SetRequestContext(serviceType);
 
-            ServiceProvider.RegisterSingleton<IRequestHandler, DefaultRequestExecutor>();
+            ServiceProvider.Register<IRequestExecutor, RequestExecutor>();
         }
     }
 }

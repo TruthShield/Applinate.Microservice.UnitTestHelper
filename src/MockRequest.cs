@@ -13,7 +13,7 @@ namespace Applinate.Test
     /// <typeparam name="TResult">The type of the t result.</typeparam>
     public static class MockRequest<TArg, TResult>
         where TArg : class, IReturn<TResult>
-        where TResult : class, IHaveRequestStatus
+        where TResult : class, IHaveResponseStatus
     {
         private static readonly AsyncLocal<MockCommandExecutor<TArg, TResult>> _Executor = new();
         private static readonly MockCommandExecutor<TArg, TResult> _GlobalExecutor = new();
