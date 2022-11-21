@@ -2,6 +2,8 @@
 
 namespace Applinate.Test
 {
+    using Applinate.Internals;
+
     /// <summary>
     /// Class TestBase.
     /// </summary>
@@ -21,7 +23,7 @@ namespace Applinate.Test
 
             TestHelper.SetRequestContext(serviceType);
 
-            ServiceProvider.Register<IRequestExecutor, RequestExecutor>();
+            RequestExecutorManager.Register();
         }
     }
 }
