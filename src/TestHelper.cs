@@ -2,7 +2,9 @@
 
 namespace Applinate.Test
 {
+    using Applinate.Internals;
     using Microsoft.Extensions.Primitives;
+    using System.Collections.Immutable;
     using System.Collections.ObjectModel;
 
     /// <summary>
@@ -107,25 +109,25 @@ namespace Applinate.Test
             TypeRegistry.LoadFromDisk = !true;   
 
         public static void SetRequestContext(ServiceType commandType) =>
-            RequestContext.Current =
-                new RequestContext(
-                    currentServiceType    : commandType,
-                    sessionId             : SequentialGuid.NewGuid(),
-                    conversationId        : SequentialGuid.NewGuid(),
-                    appContext            : AppContextKey.Empty,
-                    requestCallCount      : RequestContext.Current.RequestCallCount,
-                    decoratorCallCount    : RequestContext.Current.DecoratorCallCount,
-                    metadata              : RequestContext.Current.Metadata);
+            new RequestContext(
+                currentServiceType    : commandType,
+                sessionId             : SequentialGuid.NewGuid(),
+                conversationId        : SequentialGuid.NewGuid(),
+                appContext            : AppContextKey.Empty,
+                requestCallCount      : RequestContextProvider.RequestCallCount,
+                decoratorCallCount    : RequestContextProvider.DecoratorCallCount,
+                metadata              : RequestContextProvider.Metadata)
+            .SetCurrentRequestContext();
 
         public static void SetRequestContextMetadata(IDictionary<string, StringValues> md) =>
-            RequestContext.Current =
-                new RequestContext(
-                    currentServiceType    : RequestContext.Current.ServiceType,
-                    sessionId             : SequentialGuid.NewGuid(),
-                    conversationId        : SequentialGuid.NewGuid(),
-                    appContext            : AppContextKey.Empty,
-                    requestCallCount      : RequestContext.Current.RequestCallCount,
-                    decoratorCallCount    : RequestContext.Current.DecoratorCallCount,
-                    metadata              : new ReadOnlyDictionary<string, StringValues>(md));
+            new RequestContext(
+                currentServiceType    : RequestContextProvider.ServiceType,
+                sessionId             : SequentialGuid.NewGuid(),
+                conversationId        : SequentialGuid.NewGuid(),
+                appContext            : AppContextKey.Empty,
+                requestCallCount      : RequestContextProvider.RequestCallCount,
+                decoratorCallCount    : RequestContextProvider.DecoratorCallCount,
+                metadata              : new ReadOnlyDictionary<string, StringValues>(md).ToImmutableDictionary())
+            .SetCurrentRequestContext();
     }
 }

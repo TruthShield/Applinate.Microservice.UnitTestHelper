@@ -12,7 +12,6 @@ namespace Applinate.Test
     /// </summary>
     /// <typeparam name="TArg">The type of the t argument.</typeparam>
     public static class MockCommand
-
     {
         public static void Clear<TArg>() where TArg : class, IReturn<CommandResponse> =>
             MockRequest<TArg, CommandResponse>.Clear();
