@@ -3,14 +3,12 @@
 namespace Applinate.Test
 {
     using Applinate.Internals;
-    using Microsoft.Extensions.Primitives;
     using System.Collections.Immutable;
-    using System.Collections.ObjectModel;
 
     /// <summary>
     /// Class TestHelper.
     /// </summary>
-    public static class TestHelper
+    public static class ApplinateTestHelper
     {
         /// <summary>
         /// Mocks the command for the test context.  A successful result is returned unless
@@ -116,10 +114,11 @@ namespace Applinate.Test
                 appContext            : AppContextKey.Empty,
                 requestCallCount      : RequestContextProvider.RequestCallCount,
                 decoratorCallCount    : RequestContextProvider.DecoratorCallCount,
-                metadata              : RequestContextProvider.Metadata)
+                metadata              : RequestContextProvider.Metadata,
+                userProfileId         : RequestContextProvider.UserProfileId)
             .SetCurrentRequestContext();
 
-        public static void SetRequestContextMetadata(IDictionary<string, StringValues> md) =>
+        public static void SetRequestContextMetadata(IDictionary<string, string> md) =>
             new RequestContext(
                 currentServiceType    : RequestContextProvider.ServiceType,
                 sessionId             : SequentialGuid.NewGuid(),
@@ -127,7 +126,8 @@ namespace Applinate.Test
                 appContext            : AppContextKey.Empty,
                 requestCallCount      : RequestContextProvider.RequestCallCount,
                 decoratorCallCount    : RequestContextProvider.DecoratorCallCount,
-                metadata              : new ReadOnlyDictionary<string, StringValues>(md).ToImmutableDictionary())
+                metadata              : md.ToImmutableDictionary(),
+                userProfileId         : RequestContextProvider.UserProfileId)
             .SetCurrentRequestContext();
     }
 }

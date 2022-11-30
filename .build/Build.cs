@@ -58,7 +58,7 @@ class Build : NukeBuild
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
-    static string Version = new Version(0, 5, 0).ToString();
+    static string Version = new Version(0, 7, 0).ToString();
     GitVersion GitVersion => From<IWithGitVersion>().Versioning;
     public static int Main () => Execute<Build>(x => x.Test);
 
