@@ -7,9 +7,9 @@ namespace Applinate.Test
     /// <summary>
     /// Class TestBase.
     /// </summary>
-    public class TestBase
+    public class ApplinateTestBase
     {
-        public TestBase(ServiceType serviceType = ServiceType.Client, bool useEncryption = true)
+        public ApplinateTestBase(ServiceType serviceType = ServiceType.Client, bool useEncryption = true)
         {
             Initialize(serviceType);
         }
@@ -17,13 +17,13 @@ namespace Applinate.Test
         [STAThread]
         private static void Initialize(ServiceType serviceType)
         {
-            TestHelper.OnlyLoadReferencedAssemblies();
+            ApplinateTestHelper.OnlyLoadReferencedAssemblies();
 
             InitializationProvider.Initialize(true);
 
-            TestHelper.SetRequestContext(serviceType);
+            ApplinateTestHelper.SetRequestContext(serviceType);
 
-            RequestExecutorManager.Register();
+            RequestExecutorHelper.Register();
         }
     }
 }
